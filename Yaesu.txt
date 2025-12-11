@@ -1,0 +1,39 @@
+This file will be used for notes on the transceiver
+// Yaesu FTdx101MP
+// Firmware Version: 1.120
+// Date: 2024-06-15
+// Notes:
+// - The Yaesu FTdx101MP is a high-performance HF/50MHz transceiver
+//   known for its advanced features and robust build quality.
+// - It supports a wide range of modes including SSB, CW, AM, FM,
+//   and digital modes.
+// - The transceiver features a large color touchscreen display for easy
+//   operation and configuration.
+// - It has multiple filters and a high dynamic range receiver,
+//   making it suitable for contesting and DXing.
+// - The FTdx101MP also includes built-in antenna tuner and
+//   supports remote operation via Ethernet.
+// - Users have reported excellent audio quality and strong
+//   performance in crowded band conditions.
+// - Recommended accessories include an external speaker,
+//   microphone, and a high-quality power supply.
+// - Regular firmware updates from Yaesu help to enhance
+//   functionality and fix any bugs.
+// - Overall, the Yaesu FTdx101MP is highly regarded in the amateur
+//   radio community for its performance and reliability.
+// End of notes for Yaesu FTdx101MP
+// Additional Comments:
+// - Users should refer to the official Yaesu website for the latest
+//   firmware updates and detailed user manuals.
+// - Joining online forums and user groups can provide valuable
+//   insights and tips for operating the FTdx101MP effectively.
+// - Proper maintenance and care will ensure the longevity of the transceiver.
+// - Experimenting with different antennas and accessories can
+//   enhance the overall experience and performance.
+// End of additional comments for Yaesu FTdx101MP
+Tuning steps depend on mode:
+SSB/CW/RTTY/PSK/DATA-L/DATA-U: 5/10 Hz
+SSB/CW: 100 Hz
+AM/FM: 1 kHz
+Digital Modes: 10 Hz
+// End of tuning steps for Yaesu FTdx101MP

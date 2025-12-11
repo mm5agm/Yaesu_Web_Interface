@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+*.sqlite3
+# Local database files
+
+.env
+# Environment files
+
+*.log
+# Logs
+
+Thumbs.db
+.DS_Store
+# OS files
+
+.vscode/
+# VSCode
+
+*.egg-info/
+.eggs/
+dist/
+build/
+# Distribution / packaging
+
+*.iml
+.idea/
+# PyCharm
+
+pip-wheel-metadata/
+.venv/
+env/
+venv/
+# Virtual environments
+
+*$py.class
+*.py[cod]
+__pycache__/
+
