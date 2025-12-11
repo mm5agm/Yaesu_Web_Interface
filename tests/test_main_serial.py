@@ -2,6 +2,8 @@ import sys
 import types
 import time
 import importlib
+import importlib.util
+from pathlib import Path
 
 
 def make_fake_serial(responses=None):
@@ -45,6 +47,17 @@ def prep_fake_serial_module(fake_class):
     return mod
 
 
+def load_main_module():
+    # Load main.py from the repository root path to ensure import works under pytest
+    repo_root = Path(__file__).resolve().parent.parent
+    main_path = repo_root / 'main.py'
+    spec = importlib.util.spec_from_file_location('main', str(main_path))
+    module = importlib.util.module_from_spec(spec)
+    sys.modules['main'] = module
+    spec.loader.exec_module(module)
+    return module
+
+
 def test_set_freq_writes_command(tmp_path, monkeypatch):
     # fake serial will capture writes
     FakeSerial = make_fake_serial(responses=[])
@@ -52,7 +65,7 @@ def test_set_freq_writes_command(tmp_path, monkeypatch):
     sys.modules['serial'] = fake_mod
 
     # import main after we've injected fake serial
-    main = importlib.import_module('main')
+    main = load_main_module()
 
     client = main.app.test_client()
 
@@ -71,8 +84,7 @@ def test_poll_updates_freq_and_freq_endpoint(monkeypatch):
     sys.modules['serial'] = fake_mod
 
     # reload main to pick up fake serial
-    importlib.reload(importlib.import_module('main'))
-    main = importlib.import_module('main')
+    main = load_main_module()
 
     # allow poll thread a short time to run
     time.sleep(0.1)
@@ -83,4 +95,3 @@ def test_poll_updates_freq_and_freq_endpoint(monkeypatch):
     j = r.get_json()
     assert j['frequency'] == '14.25000 MHz'
     assert j['frequency_b'] == '7.10000 MHz'
-
