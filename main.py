@@ -1,10 +1,20 @@
-from typing import Optional
-from flask import Flask, render_template_string, jsonify, Response, stream_with_context, request
+from typing import Optional, Any as _Any
+try:
+    from flask import Flask, render_template_string, jsonify, Response, stream_with_context, request
+except Exception:
+    # Fallbacks for static analysis / IDEs that haven't indexed the venv yet
+    Flask = _Any
+    render_template_string = _Any
+    jsonify = _Any
+    Response = _Any
+    stream_with_context = _Any
+    request = _Any
 import serial
 import threading
 import time
 import json
 import logging
+import os
 
 # configure simple logging
 logging.basicConfig(level=logging.INFO)
@@ -340,4 +350,12 @@ def set_freq():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    # Allow overriding host/port via environment variables (FLASK_RUN_HOST/FLASK_RUN_PORT or HOST/PORT)
+    host = os.environ.get("FLASK_RUN_HOST") or os.environ.get("HOST") or "192.168.0.100"
+    port = int(os.environ.get("FLASK_RUN_PORT") or os.environ.get("PORT") or 5000)
+    logger.info("Starting Flask app on %s:%s", host, port)
+    try:
+        app.run(host=host, port=port)
+    except OSError as e:
+        logger.exception("Failed to bind to %s:%s: %s", host, port, e)
+        raise

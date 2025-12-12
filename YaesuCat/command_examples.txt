@@ -1,0 +1,495 @@
+# AB — MAIN BAND TO SUB BAND
+Set example: `AB;`
+Read example: `AB;`
+Answer example: `AB...;`
+
+# AC — ANTENNA TUNER CONTROL
+Set example: `AC<P1><P2><P3>;`
+Read example: `AC;`
+Answer example: `AC...;`
+
+# AG — AF GAIN
+Set example: `AG<P1><P2>;`
+Read example: `AG<P1>;`
+Answer example: `AG...;`
+
+# AI — AUTO INFORMATION
+Set example: `AI<P1>;`
+Read example: `AI;`
+Answer example: `AI...;`
+
+# AM — MAIN BAND TO MEMORY CHANNEL
+Set example: `AM;`
+Read example: `AM;`
+Answer example: `AM...;`
+
+# AN — ANTENNA NUMBER
+Set example: `AN<P1><P2><P4>;`
+Read example: `AN<P1>;`
+Answer example: `AN...;`
+
+# AO — AMC OUTPUT LEVEL
+Set example: `AO<P1>;`
+Read example: `AO;`
+Answer example: `AO...;`
+
+# AV — ANTI VOX LEVEL
+Set example: `AV<P1>;`
+Read example: `AV;`
+Answer example: `AV...;`
+
+# BA — SUB BAND TO MAIN BAND
+Set example: `BA;`
+Read example: `BA;`
+Answer example: `BA...;`
+
+# BC — AUTO NOTCH
+Set example: `BC<P1><P2>;`
+Read example: `BC<P1>;`
+Answer example: `BC...;`
+
+# BD — BAND DOWN
+Set example: `BD<P1>;`
+Read example: `BD;`
+Answer example: `BD...;`
+
+# BI — BREAK-IN
+Set example: `BI<P1>;`
+Read example: `BI;`
+Answer example: `BI...;`
+
+# BM — SUB BAND TO MEMORY CHANNEL
+Set example: `BM;`
+Read example: `BM;`
+Answer example: `BM...;`
+
+# BP — MANUAL NOTCH
+Set example: `BP<P1><P2><P3>;`
+Read example: `BP<P1><P2>;`
+Answer example: `BP...;`
+
+# BS — BAND SELECT
+Set example: `BS<P1>;`
+Read example: `BS;`
+Answer example: `BS...;`
+
+# BU — BAND UP
+Set example: `BU<P1>;`
+Read example: `BU;`
+Answer example: `BU...;`
+
+# BY — BUSY
+Set example: `BY<P1><P2>;`
+Read example: `BY;`
+Answer example: `BY...;`
+
+# CH — CHANNEL UP/DOWN
+Set example: `CH<P1>;`
+Read example: `CH;`
+Answer example: `CH...;`
+
+# CN — CTCSS TONE FREQUENCY
+Set example: `CN<P1><P2><P3>;`
+Read example: `CN<P1><P2>;`
+Answer example: `CN...;`
+
+# CO — CONTOUR
+Set example: `CO<P1><P2><P3>;`
+Read example: `CO<P1><P2>;`
+Answer example: `CO...;`
+
+# CS — CW SPOT
+Set example: `CS<P1>;`
+Read example: `CS;`
+Answer example: `CS...;`
+
+# CT — CTCSS
+Set example: `CT<P1><P2>;`
+Read example: `CT<P1>;`
+Answer example: `CT...;`
+
+# DA — DIMMER
+Set example: `DA<P1><P2><P3><P4>;`
+Read example: `DA;`
+Answer example: `DA...;`
+
+# DN — MIC DOWN
+Set example: `DN;`
+Read example: `DN;`
+Answer example: `DN...;`
+
+# DT — DATE AND TIME
+Set example: `DT<P1><P2>;`
+Read example: `DT<P1>;`
+Answer example: `DT...;`
+
+# ED — ENCODER DOWN
+Set example: `ED<P1><P2>;`
+Read example: `ED;`
+Answer example: `ED...;`
+
+# EM — ENCODE MEMORY
+Set example: `EM<P1><P2><P3>;`
+Read example: `EM<P1><P2>;`
+Answer example: `EM...;`
+
+# EN — ENCODE
+Set example: `EN<P1><P2>;`
+Read example: `EN;`
+Answer example: `EN...;`
+
+# EU — ENCODER UP
+Set example: `EU<P1><P2>;`
+Read example: `EU;`
+Answer example: `EU...;`
+
+# EX — MENU
+Set example: `EX<P1><P2><P3><P4>;`
+Read example: `EX<P1><P2><P3>;`
+Answer example: `EX...;`
+
+# CS — DIAL	00: RF POWER	01: MONI LEVEL	02: DNR LEVEL	03: NB LEVEL
+Set example: `CS<P1><P2><P3><P4>;`
+Read example: `CS;`
+Answer example: `CS...;`
+
+# FA — FREQUENCY MAIN BAND
+Set example: `FA<P1>;`
+Read example: `FA;`
+Answer example: `FA...;`
+
+# FB — FREQUENCY SUB BAND
+Set example: `FB<P1>;`
+Read example: `FB;`
+Answer example: `FB...;`
+
+# FN — FINE TUNING
+Set example: `FN<P1>;`
+Read example: `FN;`
+Answer example: `FN...;`
+
+# FR — FUNCTION RX
+Set example: `FR<P1><P2>;`
+Read example: `FR;`
+Answer example: `FR...;`
+
+# FS — FAST STEP
+Set example: `FS<P1>;`
+Read example: `FS;`
+Answer example: `FS...;`
+
+# FT — FUNCTION TX
+Set example: `FT<P1><P2>;`
+Read example: `FT;`
+Answer example: `FT...;`
+
+# GT — AGC FUNCTION
+Set example: `GT<P1><P2><P3>;`
+Read example: `GT<P1>;`
+Answer example: `GT...;`
+
+# ID — IDENTIFICATION
+Set example: `ID<P1>;`
+Read example: `ID;`
+Answer example: `ID...;`
+
+# IF — INFORMATION
+Set example: `IF<P1><P2><P3><P4><P5><P6><P7><P8><P9><P10>;`
+Read example: `IF;`
+Answer example: `IF...;`
+
+# IS — IF-SHIFT
+Set example: `IS<P1><P2><P3><P4>;`
+Read example: `IS<P1>;`
+Answer example: `IS...;`
+
+# KM — KEYER MEMORY
+Set example: `KM<P1><P2>;`
+Read example: `KM<P1>;`
+Answer example: `KM...;`
+
+# KP — KEY PITCH
+Set example: `KP<P1>;`
+Read example: `KP;`
+Answer example: `KP...;`
+
+# KR — KEYER
+Set example: `KR<P1>;`
+Read example: `KR;`
+Answer example: `KR...;`
+
+# KS — KEY SPEED
+Set example: `KS<P1>;`
+Read example: `KS;`
+Answer example: `KS...;`
+
+# KY — CW KEYING
+Set example: `KY<P1>;`
+Read example: `KY;`
+Answer example: `KY...;`
+
+# LK — LOCK
+Set example: `LK<P1>;`
+Read example: `LK;`
+Answer example: `LK...;`
+
+# LM — LOAD MESSAGE
+Set example: `LM<P1><P2>;`
+Read example: `LM<P1>;`
+Answer example: `LM...;`
+
+# MA — MEMORY CHANNEL TO MAIN BAND
+Set example: `MA;`
+Read example: `MA;`
+Answer example: `MA...;`
+
+# MB — MEMORY CHANNEL TO SUB BAND
+Set example: `MB;`
+Read example: `MB;`
+Answer example: `MB...;`
+
+# MC — MEMORY CHANNEL
+Set example: `MC<P1><P9>;`
+Read example: `MC;`
+Answer example: `MC...;`
+
+# MD — OPERATING MODE
+Set example: `MD<P1><P2>;`
+Read example: `MD<P1>;`
+Answer example: `MD...;`
+
+# MG — MIC GAIN
+Set example: `MG<P1>;`
+Read example: `MG;`
+Answer example: `MG...;`
+
+# ML — MONITOR LEVEL
+Set example: `ML<P1><P2>;`
+Read example: `ML<P1>;`
+Answer example: `ML...;`
+
+# MR — MEMORY CHANNEL READ
+Set example: `MR<P0><P1><P2><P3><P4><P5><P6><P7><P8><P9><P10>;`
+Read example: `MR<P0>;`
+Answer example: `MR...;`
+
+# MS — METER SW
+Set example: `MS<P1><P2>;`
+Read example: `MS;`
+Answer example: `MS...;`
+
+# MT — MEMORY CHANNEL WRITE/TAG
+Set example: `MT<P0><P1><P2><P3><P4><P5><P6><P7><P8><P9><P10><P11><P12>;`
+Read example: `MT<P1><P2><P3><P4><P8><P9><P10><P11><P12>;`
+Answer example: `MT...;`
+
+# MW — MEMORY CHANNEL WRITE
+Set example: `MW<P1><P2><P3><P4><P5><P6><P7><P8><P9><P10>;`
+Read example: `MW;`
+Answer example: `MW...;`
+
+# MX — MOX SET
+Set example: `MX<P1>;`
+Read example: `MX;`
+Answer example: `MX...;`
+
+# NA — NARROW
+Set example: `NA<P1><P2>;`
+Read example: `NA<P1>;`
+Answer example: `NA...;`
+
+# NB — NOISE BLANKER STATUS
+Set example: `NB<P1><P2>;`
+Read example: `NB<P1>;`
+Answer example: `NB...;`
+
+# NL — NOISE BLANKER LEVEL
+Set example: `NL<P1><P2>;`
+Read example: `NL<P1>;`
+Answer example: `NL...;`
+
+# NR — NOISE REDUCTION
+Set example: `NR<P1><P2>;`
+Read example: `NR<P1>;`
+Answer example: `NR...;`
+
+# OI — OPPOSITE BAND INFORMATION
+Set example: `OI<P1><P2><P3><P4><P5><P6><P7><P8><P9><P10>;`
+Read example: `OI;`
+Answer example: `OI...;`
+
+# OS — OFFSET (REPEATER SHIFT)
+Set example: `OS<P1><P2>;`
+Read example: `OS<P1>;`
+Answer example: `OS...;`
+
+# PA — PRE-AMP (IPO)
+Set example: `PA<P1><P2>;`
+Read example: `PA<P1>;`
+Answer example: `PA...;`
+
+# PB — PLAY BACK
+Set example: `PB<P1><P2>;`
+Read example: `PB<P1>;`
+Answer example: `PB...;`
+
+# PC — POWER CONTROL
+Set example: `PC<P1>;`
+Read example: `PC;`
+Answer example: `PC...;`
+
+# PL — SPEECH PROCESSOR LEVEL
+Set example: `PL<P1>;`
+Read example: `PL;`
+Answer example: `PL...;`
+
+# PR — SPEECH PROCESSOR
+Set example: `PR<P1><P2>;`
+Read example: `PR<P1>;`
+Answer example: `PR...;`
+
+# PS — POWER SWITCH
+Set example: `PS<P1>;`
+Read example: `PS;`
+Answer example: `PS...;`
+
+# QI — QMB STORE
+Set example: `QI;`
+Read example: `QI;`
+Answer example: `QI...;`
+
+# QR — QMB RECALL
+Set example: `QR;`
+Read example: `QR;`
+Answer example: `QR...;`
+
+# QS — QUICK SPLIT
+Set example: `QS;`
+Read example: `QS;`
+Answer example: `QS...;`
+
+# RA — RF ATTENUATOR
+Set example: `RA<P1><P2>;`
+Read example: `RA<P1>;`
+Answer example: `RA...;`
+
+# RC — CLAR CLEAR
+Set example: `RC;`
+Read example: `RC;`
+Answer example: `RC...;`
+
+# RD — CLAR DOWN
+Set example: `RD<P1>;`
+Read example: `RD;`
+Answer example: `RD...;`
+
+# RF — ROOFING FILTER
+Set example: `RF<P1><P2><P3>;`
+Read example: `RF<P1>;`
+Answer example: `RF...;`
+
+# RG — RF GAIN
+Set example: `RG<P1><P2>;`
+Read example: `RG<P1>;`
+Answer example: `RG...;`
+
+# RI — RADIO INFORMATION
+Set example: `RI<P1><P2>;`
+Read example: `RI<P1>;`
+Answer example: `RI...;`
+
+# RL — NOISE REDUCTION LEVEL
+Set example: `RL<P1><P2>;`
+Read example: `RL<P1>;`
+Answer example: `RL...;`
+
+# RM — READ METER
+Set example: `RM<P1><P2><P3>;`
+Read example: `RM<P1>;`
+Answer example: `RM...;`
+
+# RS — RADIO STATUS
+Set example: `RS<P1>;`
+Read example: `RS;`
+Answer example: `RS...;`
+
+# RT — CLAR
+Set example: `RT<P1>;`
+Read example: `RT;`
+Answer example: `RT...;`
+
+# RU — RX CLARIFIER PLUS OFFSET
+Set example: `RU<P1>;`
+Read example: `RU;`
+Answer example: `RU...;`
+
+# SC — SCAN
+Set example: `SC<P1>;`
+Read example: `SC;`
+Answer example: `SC...;`
+
+# SD — CW BREAK-IN DELAY TIME
+Set example: `SD<P1>;`
+Read example: `SD;`
+Answer example: `SD...;`
+
+# SF — SUB DIAL
+Set example: `SF<P1><P2>;`
+Read example: `SF<P1>;`
+Answer example: `SF...;`
+
+# SH — WIDTH
+Set example: `SH<P1><P2><P3>;`
+Read example: `SH<P1>;`
+Answer example: `SH...;`
+
+# SM — S-METER READING
+Set example: `SM<P1><P2>;`
+Read example: `SM<P1>;`
+Answer example: `SM...;`
+
+# SQ — SQUELCH LEVEL
+Set example: `SQ<P1><P2>;`
+Read example: `SQ<P1>;`
+Answer example: `SQ...;`
+
+# SS — SPECTRUM SCOPE
+Set example: `SS<P1><P2><P3><P4><P5><P6><P7>;`
+Read example: `SS<P1><P2>;`
+Answer example: `SS...;`
+
+# ST — SPLIT
+Set example: `ST<P1>;`
+Read example: `ST;`
+Answer example: `ST...;`
+
+# SV — SWAP VFO
+Set example: `SV;`
+Read example: `SV;`
+Answer example: `SV...;`
+
+# SY — SYNC
+Set example: `SY<P1>;`
+Read example: `SY;`
+Answer example: `SY...;`
+
+# TX — TX SET
+Set example: `TX<P1>;`
+Read example: `TX;`
+Answer example: `TX...;`
+
+# UL — PLL UNLOCK STATUS
+Set example: `UL<P1>;`
+Read example: `UL;`
+Answer example: `UL...;`
+
+# UP — MIC UP
+Set example: `UP;`
+Read example: `UP;`
+Answer example: `UP...;`
+
+# VD — VOX DELAY TIME / DATA VOX DELAY TIME
+Set example: `VD<P1>;`
+Read example: `VD;`
+Answer example: `VD...;`
+
