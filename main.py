@@ -215,13 +215,17 @@ def index():
       <h1>Yaesu CAT Web Control Active</h1>
       <div id="freq-box">Loading A...</div>
       <div class="controls">
-        <input id="freq-input-a" type="number" placeholder="Hz (e.g. 14250000)" />
-        <button id="set-a">Set A</button>
+        <form id="form-a" onsubmit="(async function(e){ e.preventDefault(); const v=document.getElementById('freq-input-a').value; if(!v || String(v).trim()==='') return alert('Enter MHz for A'); const ok=await setFreq('FA', v); if(ok) alert('Set A'); return false; })(event);">
+          <input id="freq-input-a" name="freq-a" type="text" step="0.001" placeholder="MHz (e.g. 14.250)" />
+          <button id="set-a" type="submit">Set A</button>
+        </form>
       </div>
       <div id="freq-box-b">Loading B...</div>
       <div class="controls">
-        <input id="freq-input-b" type="number" placeholder="Hz (e.g. 7100000)" />
-        <button id="set-b">Set B</button>
+        <form id="form-b" onsubmit="(async function(e){ e.preventDefault(); const v=document.getElementById('freq-input-b').value; if(!v || String(v).trim()==='') return alert('Enter MHz for B'); const ok=await setFreq('FB', v); if(ok) alert('Set B'); return false; })(event);">
+          <input id="freq-input-b" name="freq-b" type="text" step="0.001" placeholder="MHz (e.g. 7.100)" />
+          <button id="set-b" type="submit">Set B</button>
+        </form>
       </div>
       <script>
         const boxA = document.getElementById('freq-box');
@@ -231,12 +235,17 @@ def index():
         const setA = document.getElementById('set-a');
         const setB = document.getElementById('set-b');
 
-        async function setFreq(vfo, hz) {
+        // Accept MHz (decimal) from user, convert to Hz integer before sending
+        async function setFreq(vfo, mhzInput) {
           try {
+            const mhz = parseFloat(mhzInput);
+            if (!Number.isFinite(mhz)) throw new Error('invalid MHz');
+            // convert MHz to Hz and round to nearest Hz
+            const hz = Math.round(mhz * 1_000_000);
             const r = await fetch('/set_freq', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ vfo: vfo, hz: parseInt(hz, 10) })
+              body: JSON.stringify({ vfo: vfo, hz: hz })
             });
             const j = await r.json();
             if (!r.ok) throw new Error(j.reason || 'set failed');
@@ -247,15 +256,25 @@ def index():
           }
         }
 
-        setA.addEventListener('click', async () => {
-          if (!inputA.value) return alert('Enter Hz for A');
-          const ok = await setFreq('FA', inputA.value);
-          if (ok) alert('Set A');
-        });
-        setB.addEventListener('click', async () => {
-          if (!inputB.value) return alert('Enter Hz for B');
-          const ok = await setFreq('FB', inputB.value);
-          if (ok) alert('Set B');
+        // Using forms with onsubmit handlers means Enter reliably triggers submission.
+        // Click and key handlers removed to avoid double submissions.
+
+        // Fallback: if the inputs exist but forms/handlers are missing (cached page),
+        // catch Enter at the document level and call setFreq directly.
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.keyCode === 13) {
+            const active = document.activeElement;
+            if (!active) return;
+            if (active.id === 'freq-input-a' || active.id === 'freq-input-b') {
+              e.preventDefault(); e.stopPropagation();
+              const v = active.value;
+              const label = active.id === 'freq-input-a' ? 'A' : 'B';
+              const vfo = active.id === 'freq-input-a' ? 'FA' : 'FB';
+              if (!v || String(v).trim() === '') return alert(`Enter MHz for ${label}`);
+              // call setFreq and show alert on success
+              setFreq(vfo, v).then(ok => { if (ok) alert(`Set ${label}`); });
+            }
+          }
         });
 
         if (!!window.EventSource) {
@@ -350,12 +369,13 @@ def set_freq():
 
 
 if __name__ == "__main__":
-    # Allow overriding host/port via environment variables (FLASK_RUN_HOST/FLASK_RUN_PORT or HOST/PORT)
-    host = os.environ.get("FLASK_RUN_HOST") or os.environ.get("HOST") or "192.168.0.100"
-    port = int(os.environ.get("FLASK_RUN_PORT") or os.environ.get("PORT") or 5000)
+    # Hard-coded host/port to ensure the app always binds to the LAN IP
+    host = "192.168.0.100"
+    port = 5000
     logger.info("Starting Flask app on %s:%s", host, port)
     try:
-        app.run(host=host, port=port)
+        # Disable the reloader to avoid a second process that can confuse binding
+        app.run(host=host, port=port, use_reloader=False)
     except OSError as e:
         logger.exception("Failed to bind to %s:%s: %s", host, port, e)
         raise
