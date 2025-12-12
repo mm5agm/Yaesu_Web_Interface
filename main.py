@@ -1,14 +1,5 @@
-from typing import Optional, Any as _Any
-try:
-    from flask import Flask, render_template_string, jsonify, Response, stream_with_context, request
-except Exception:
-    # Fallbacks for static analysis / IDEs that haven't indexed the venv yet
-    Flask = _Any
-    render_template_string = _Any
-    jsonify = _Any
-    Response = _Any
-    stream_with_context = _Any
-    request = _Any
+from typing import Optional
+from flask import Flask, render_template_string, jsonify, Response, stream_with_context, request
 import serial
 import threading
 import time
@@ -215,12 +206,12 @@ def index():
       <h1>Yaesu CAT Web Control Active</h1>
       <div id="freq-box">Loading A...</div>
       <div class="controls">
-        <input id="freq-input-a" type="number" placeholder="Hz (e.g. 14250000)" />
+        <input id="freq-input-a" type="number" step="0.001" placeholder="MHz (e.g. 14.250)" />
         <button id="set-a">Set A</button>
       </div>
       <div id="freq-box-b">Loading B...</div>
       <div class="controls">
-        <input id="freq-input-b" type="number" placeholder="Hz (e.g. 7100000)" />
+        <input id="freq-input-b" type="number" step="0.001" placeholder="MHz (e.g. 7.100)" />
         <button id="set-b">Set B</button>
       </div>
       <script>
@@ -231,12 +222,15 @@ def index():
         const setA = document.getElementById('set-a');
         const setB = document.getElementById('set-b');
 
-        async function setFreq(vfo, hz) {
+        async function setFreq(vfo, mhzInput) {
           try {
+            const mhz = parseFloat(mhzInput);
+            if (!Number.isFinite(mhz)) throw new Error('invalid MHz');
+            const hz = Math.round(mhz * 1_000_000);
             const r = await fetch('/set_freq', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ vfo: vfo, hz: parseInt(hz, 10) })
+              body: JSON.stringify({ vfo: vfo, hz: hz })
             });
             const j = await r.json();
             if (!r.ok) throw new Error(j.reason || 'set failed');
@@ -248,12 +242,12 @@ def index():
         }
 
         setA.addEventListener('click', async () => {
-          if (!inputA.value) return alert('Enter Hz for A');
+          if (!inputA.value) return alert('Enter MHz for A');
           const ok = await setFreq('FA', inputA.value);
           if (ok) alert('Set A');
         });
         setB.addEventListener('click', async () => {
-          if (!inputB.value) return alert('Enter Hz for B');
+          if (!inputB.value) return alert('Enter MHz for B');
           const ok = await setFreq('FB', inputB.value);
           if (ok) alert('Set B');
         });
@@ -333,6 +327,7 @@ def set_freq():
         return jsonify({"status": "error", "reason": "invalid hz"}), 400
 
     cmd = _build_set_cmd(vfo, hz)
+    logger.info("Writing to serial: %s", cmd)
     # do serial write under lock
     with serial_lock:
         if ser is None or not getattr(ser, 'is_open', False):

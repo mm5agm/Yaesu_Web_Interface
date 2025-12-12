@@ -1,3 +1,6 @@
-Flask
-pyserial
+Flask==3.1.2
+pyserial==3.5
+Werkzeug==3.1.4
+Jinja2==3.1.6
+click==8.3.1
 # dev/test dependencies are kept in dev-requirements.txt
